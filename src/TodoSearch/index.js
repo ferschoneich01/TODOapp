@@ -1,26 +1,35 @@
 import React from "react";
-import './TodoSearch.css';
+import "./TodoSearch.css";
+import { TodoContext } from "../TodoContext";
 
-function TodoSearch({search, setSearch}){
-
-    const onSearchValueChange = (event) =>{
-        //console.log(event.target.value);
-        setSearch(event.target.value);
-    }
-    return (
-        <div className="input-wrapper">
-            <input className="input" placeholder="cebolla"
-             onChange={onSearchValueChange}
-             value={search}
-             >
-
-             </input>
-            <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20" fill="currentColor">
-		    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-	        </svg>
-        </div>
-        
-    );
+function TodoSearch() {
+  const { searchTodos, setSearch } = React.useContext(TodoContext);
+  const onSearchValueChange = (event) => {
+    //console.log(event.target.value);
+    setSearch(event.target.value);
+  };
+  return (
+    <div className="input-wrapper">
+      <input
+        className="input"
+        placeholder="cebolla"
+        onChange={onSearchValueChange}
+        value={searchTodos}
+      ></input>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="input-icon"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </div>
+  );
 }
 
 export { TodoSearch };

@@ -1,0 +1,12 @@
+.btn{
+    width: 100px;
+    height: 27px;
+    margin: 10px 5px auto auto;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 3px 3px 7px rgb(65, 65, 65);
+}
+.input-text{
+    border-radius: 20px;
+    box-shadow: 3px 3px 7px rgb(104, 104, 104);
+}

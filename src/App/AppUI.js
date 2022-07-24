@@ -1,47 +1,52 @@
-import React from 'react';
-import { TodoCounter } from '../TodoCounter';
-import { TodoSearch } from '../TodoSearch';
-import { CreateTodoButton } from '../CreateTodoButton';
-import { TodoItem } from '../TodoItem';
-import { TodoList } from '../TodoList';
+import React from "react";
+import { TodoContext } from "../TodoContext";
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
+import { TodoList } from "../TodoList";
+import { TodoItem } from "../TodoItem";
+import { CreateTodoButton } from "../CreateTodoButton";
+import { Modal } from "../Modal";
 
+function AppUI() {
+  // Desesctructuramos los valores de nuestro contexto
+  const {
+    error,
+    loading,
+    searchedTodos,
+    completeTodo,
+    deleteTodos,
+    openModal,
+    setOpenModal,
+  } = React.useContext(TodoContext);
 
-function AppUI({
-  totalTodos,
-  completedTodos,
-  search,
-  setSearch,
-  searchedTodos,
-  completeTodos,
-  deleteTodos
-}) {
   return (
     <React.Fragment>
-      <TodoCounter
-        total={totalTodos}
-        completed={completedTodos}
-      />
-      <TodoSearch
-        search={search}
-        setSearch={setSearch}
-      />
+      <TodoCounter />
+      <TodoSearch />
 
       <TodoList>
-        {searchedTodos.map(todo => (
+        {error && <p>Desespérate, hubo un error...</p>}
+        {loading && <p>Estamos cargando, no desesperes...</p>}
+        {!loading && !searchedTodos.length && <p>¡Crea tu primer TODO!</p>}
+
+        {searchedTodos.map((todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodos(todo.text)}
+            onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodos(todo.text)}
           />
         ))}
-        <CreateTodoButton />
       </TodoList>
 
-
+      {!!openModal && (
+        <Modal>
+          <p>Teletransportacion</p>
+        </Modal>
+      )}
+      <CreateTodoButton setOpenModal={setOpenModal} />
     </React.Fragment>
-
   );
 }
 

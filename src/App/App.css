@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+.preloader {
+  width: 70px;
+  height: 70px;
+  border: 10px solid rgb(209, 135, 243);
+  border-top: 10px solid rgb(56, 0, 82);
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
