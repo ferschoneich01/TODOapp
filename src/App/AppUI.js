@@ -38,14 +38,11 @@ function AppUI() {
             onDelete={() => deleteTodos(todo.text)}
           />
         ))}
+
+        <CreateTodoButton setOpenModal={setOpenModal} />
       </TodoList>
 
-      {!!openModal && (
-        <Modal>
-          <p>Teletransportacion</p>
-        </Modal>
-      )}
-      <CreateTodoButton setOpenModal={setOpenModal} />
+      {!!openModal && <Modal></Modal>}
     </React.Fragment>
   );
 }

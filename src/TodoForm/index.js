@@ -30,7 +30,7 @@ function TodoForm() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form>
       <input
         id="TodoText"
         className="input-text form-control"
@@ -38,7 +38,7 @@ function TodoForm() {
         value={newTodoValue}
         onChange={onChange}
       />
-      <button class="btn btn-primary" type="submit">
+      <button class="btn btn-primary" type="submit" onClick={onSubmit}>
         Añadir
       </button>
       <button class="btn btn-danger" type="submit" onClick={onCancel}>

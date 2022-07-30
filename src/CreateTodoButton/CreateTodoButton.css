@@ -8,9 +8,6 @@
     float: right;
     cursor: pointer;
     box-shadow: 3px 3px 7px rgb(41, 41, 41);
-    margin-right: 50px;
-    transform:translateY(-30px);
-    margin-right: 200px;
     font-size: 30px;
 }
 
